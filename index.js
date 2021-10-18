@@ -6,6 +6,7 @@ const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const prefix = "koro " || "koro!";
 
 client.once('ready', () => {
+    console.log("We are online!")
     client.user.setPresence({
         status: 'available',
         activity: {
