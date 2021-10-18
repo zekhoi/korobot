@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require("discord.js");
-const config = require("./config.json");
+const BOT_TOKEN = "ODkzNDMxMjEzNDMwMjg4NDE0.YVbWqA.2xDf1RivgmcWzqSAmh62NWDw33Y";
 
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
@@ -101,4 +101,4 @@ client.on('message', async message => {
     
 })
 
-client.login(config.BOT_TOKEN);
+client.login(BOT_TOKEN);
