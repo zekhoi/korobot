@@ -1,0 +1,94 @@
+{
+    "kata_kata" : [
+        "Bapakmu pulang jam berapa?",
+        "Kenapa? Mau gelud kah?",
+        "Kenapa kak?",
+        "Sini, kalo mau ribut bilang",
+        "Naksir aku kah?",
+        "Iya kak maaf",
+        "Kubilangin mamahku nanti lo :'(",
+        "Iri bilang bos",
+        "Duit masih dikasih orangtua jangan sombong",
+        "Kok kalian ngajak ribut",
+        "Sombong amat",
+        "Cupu lo!",
+        "Omong doang",
+        "Y",
+        "Yoi",
+        "Aku dibuang mulu sih kak",
+        "Bentar aku ada kelas kak",
+        "Jangan tsundere mulu dong kak",
+        "Mangsud amat",
+        "Iri ya kak?",
+        "Udah makan belom kak?",
+        "Lagi galau ya kak?",
+        "Marah-marah mulu",
+        "Mau seblak?",
+        "Ayo by one alita",
+        "Mau denger ara-ara ku?",
+        "Apa sih!",
+        "Dasar jomblo!",
+        "Ku bilangin bapakmu lho!",
+        "Ku kasih nomor bapakmu ke Ritraa nanti",
+        "Tch!",
+        "Martabak direbus",
+        "Cari pacar sana",
+        "Mau beri nomor bapakmu?",
+        "Bapakmu ganteng",
+        "Bapakmu namanya siapa?",
+        "Yo ndak tau kok tanya saya",
+        "Maksud?",
+        "Kalo naksir ngaku aja",
+        "Kamu siapa sih?",
+        "Mau ku cium?",
+        "Astagfirullah",
+        "Coba ngaca sana",
+        "Gak mau",
+        "Fook Yu",
+        "Dih",
+        "Siap jagoan"
+    ],
+
+    "nyengir" : ["https://media.discordapp.net/attachments/896402692925190167/899309006663847997/IMG_20211008_185048.jpg",
+        "https://i.pinimg.com/originals/90/1d/fc/901dfca7406689e2ba859bc7bda8c7b8.png",
+        "https://www.memesmonkey.com/images/memesmonkey/s_38/3880a4f9952272933965427934eb5b17.jpeg",
+        "https://c.tenor.com/rsoqDTrdsIUAAAAM/cat-smile.gif",
+        "https://img-comment-fun.9cache.com/media/azLGxWq/abxEd0Q0_700w_0.jpg",
+        "https://imgflip.com/s/meme/Smiling-Cat.jpg",
+        "https://c.tenor.com/_kqZQY5wX2sAAAAM/orange-cat-smile-cat-smile.gif",
+        "https://dingyue.ws.126.net/2021/0622/ba0cb621p00qv2sxx003nd000he00bpg.png",
+        "https://i.kym-cdn.com/photos/images/newsfeed/002/205/323/176.jpg",
+        "https://c.tenor.com/_1hMqyFC4LEAAAAC/pop-cat.gif"
+    ],
+
+    "mandi" : [
+        "https://c.tenor.com/KhNWlWQ9ST4AAAAM/shaptic-monk.gif",
+        "https://c.tenor.com/jMrp5EU-i2QAAAAd/water-monkey.gif",
+        "https://c.tenor.com/XlINniyLnowAAAAC/monkey-in.gif",
+        "https://c.tenor.com/I26DqtPNzyUAAAAC/animals-cute.gif",
+        "https://c.tenor.com/9rkrXs9nbNQAAAAd/monkey-monkeys.gif"
+    ],
+
+    "department" : [
+        {
+                "halo" : "Moshi moshi FBI desu ka?",
+                "image" : "https://c.tenor.com/goq48dvYSFYAAAAC/fbi-calling.gif"
+        },
+        {
+                "halo" : "FBI open up!",
+                "image" : "https://thumbs.gfycat.com/CaringCheerfulBarnswallow-size_restricted.gif"
+        },
+        {
+                "halo" : "I am watching you . . .",
+                "image" : "https://c.tenor.com/sO2P__LyNmIAAAAC/fbi-madagascar.gif"
+        },
+        {
+                "halo" : "You are kinda SUS . . .",
+                "image" : "https://c.tenor.com/CKpxxXAcHt4AAAAC/chicken-fbi-skeptic-chicken.gif"
+        },
+        {
+                "halo" : "You are under arrest!",
+                "image" : "https://i.pinimg.com/originals/04/9d/76/049d7634b324eabfcc231d60da63ce3e.gif"
+        }
+    ]
+}
