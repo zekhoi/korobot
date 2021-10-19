@@ -21,7 +21,7 @@ client.on('message', async message => {
     // console.log(content)
     // console.log(message)
     try {
-        if(filter.includes("loli") || filter.includes("loliku") || filter.includes("fbi")){
+        if(filter.includes("loli") || filter.includes("loliku")  || filter.includes("istriku") || filter.includes("fbi")){
             let department = data.department
             let agent = department[Math.floor(Math.random()*department.length)]
             let fbi = new MessageEmbed()
@@ -29,6 +29,15 @@ client.on('message', async message => {
                 .setDescription(`:man_police_officer: **${agent.halo}**`)
                 .setImage(agent.image)
                 message.channel.send({ embeds: [fbi] });
+            return;
+        }
+
+        if(filter.includes("coklat") || filter.includes("cokelat") || filter.includes("chocolate")){
+            let coklat = new MessageEmbed()
+                .setColor("#ff00dd")
+                .setDescription(`:chocolate_bar:  **Ada yang bilang coklat?**`)
+                .setImage("https://i.pinimg.com/originals/68/d9/fc/68d9fcbcc7cc1d8c1c1015b3dbc5c4ee.gif")
+                message.channel.send({ embeds: [coklat] });
             return;
         }
 
@@ -143,7 +152,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:bathtub:  **${message.author.username}** mandiin **${mentioned.username}**`)
                 .setImage(mandi)
-                .setTimestamp()
                 message.channel.send({ embeds: [embed] });
                 break;
 
@@ -158,7 +166,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:raised_hands: **${message.author.username}** ngelempar **${mentioned.username}**`)
                 .setImage(yeet_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [yeet] });
                 break;
                 
@@ -173,7 +180,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:raised_hands: **${message.author.username}** nendang **${mentioned.username}**`)
                 .setImage(tendang_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [tendang] });
                 break;
 
@@ -188,7 +194,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:raised_hands: **${message.author.username}** nampar **${mentioned.username}**`)
                 .setImage(tampar_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [tampar] });
                 break;
             
@@ -203,7 +208,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:tongue: **${message.author.username}** ngejilat **${mentioned.username}**`)
                 .setImage(jilat_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [jilat] });
                 break;
                 
@@ -218,7 +222,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:pinching_hand: **${message.author.username}** ngebully **${mentioned.username}**`)
                 .setImage(bully_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [bully] });
                 break;
 
@@ -233,7 +236,6 @@ client.on('message', async message => {
                 .setColor("#ff00dd")
                 .setDescription(`:field_hockey: **${message.author.username}** ngebonk **${mentioned.username}**`)
                 .setImage(bonk_img)
-                .setTimestamp()
                 message.channel.send({ embeds: [bonk] });
                 break;
                 
