@@ -41,17 +41,24 @@ client.on('message', async message => {
             return;
         }
 
+        if(content == "pagi" || content == "selamat pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..."){
+            let greets = data.greets
+            let pagi = greets[Math.floor(Math.random()*greets.length)]
+            message.reply(pagi)
+            return;
+        }
+
         if(message.mentions.everyone){
             message.reply(`Ada perlu apa ${message.author} manggil semua orang? Mau tawuran kah?`);
             return;
         }
 
-        if (message.mentions.has(client.user)) {
-            let kata = data.kata_kata
-            let rep = kata[Math.floor(Math.random()*kata.length)]
-            message.reply(rep);
-            return;
-        }
+        // if (message.mentions.has(client.user)) {
+        //     let kata = data.kata_kata
+        //     let rep = kata[Math.floor(Math.random()*kata.length)]
+        //     message.reply(rep);
+        //     return;
+        // }
 
         if (!content.startsWith(prefix) || message.author.bot) return;
 

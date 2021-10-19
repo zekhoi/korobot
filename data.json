@@ -90,5 +90,15 @@
                 "halo" : "You are under arrest!",
                 "image" : "https://i.pinimg.com/originals/04/9d/76/049d7634b324eabfcc231d60da63ce3e.gif"
         }
+    ],
+    "greets" : [
+        "Pagi lord!",
+        "Pagi!",
+        "Pagi, semoga harimu menyenangkan!",
+        "Pagi, jangan lupa sarapan ya!",
+        "Pagi, ayo bangun!",
+        "Pagi, mandi dulu kita sekolah!",
+        "Pagi sayang!",
+        "Pagi juga!"
     ]
 }
