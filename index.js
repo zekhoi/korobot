@@ -17,7 +17,7 @@ client.on('message', async message => {
     const command = args.shift().toLowerCase();
     let mentioned = message.mentions.users.first()
     let time = new Date().toLocaleTimeString('en-GB', { timeZone: "Asia/Jakarta" });
-    // console.log(`[${time}] ${content}`);
+    console.log(`[${time}] ${content}`);
     // console.log(content)
     // console.log(message)
     try {
