@@ -20,17 +20,20 @@ client.once('ready', () => {
 
 client.on('message', async message => {
 
-    let time = new Date().toLocaleTimeString()
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
     const commandBody = content.slice(prefix.length);
     const args = commandBody.split(' ');
     const command = args.shift().toLowerCase();
-    console.log(`[${time}]| ${content}`)
+    let time = new Date().toLocaleTimeString('en-GB', { timeZone: "Asia/Jakarta" });
+    console.log(`[${time}] ${content}`);
     // console.log(content)
     // console.log(message)
     try {
-
+        let greets = false
+        if(time = "7:14:00"){
+            greets = true
+        }
         if(filter.includes("loli") || filter.includes("fbi")){
             let department = data.department
             let agent = department[Math.floor(Math.random()*department.length)]
