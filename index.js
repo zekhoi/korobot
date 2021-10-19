@@ -5,7 +5,30 @@ const data = require("./data.json");
 
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
-const prefix = "koro " || "koro!";
+const prefix = config.PREFIX;
+
+client.on('ready', () => {
+    console.log("We are online!");
+    setInterval(() => {
+        let status = [
+            {
+                name : "HATI DAEM",
+                type : "LISTENING"
+            },
+            {
+                name : "PERASAANMU",
+                type : "PLAYING"
+            },
+            {
+                name : "MONCROT SERVER",
+                type : "WATCHING"
+            }
+        ]
+        let current = status[Math.floor(Math.random()*status.length)]
+        console.log(current)
+        client.user.setActivity(current.name, { type: current.type });
+    }, 300000);
+});
 
 
 client.on('message', async message => {
@@ -303,18 +326,5 @@ client.on('message', async message => {
     }
     
 })
-
-
-client.once('ready', () => {
-    console.log("We are online!")
-    client.user.setPresence({
-        status: 'available',
-        activity: {
-            name: 'with you',
-            type: 'PLAYING',
-        }
-    });
-    client.user.setActivity('Moncrot Server', { type: 'WATCHING' });
-});
 
 client.login(config.BOT_TOKEN);
