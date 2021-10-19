@@ -21,7 +21,7 @@ client.on('message', async message => {
     // console.log(content)
     // console.log(message)
     try {
-        if(filter.includes("loli") || filter.includes("fbi")){
+        if(filter.includes("loli") || filter.includes("loliku") || filter.includes("fbi")){
             let department = data.department
             let agent = department[Math.floor(Math.random()*department.length)]
             let fbi = new MessageEmbed()
@@ -38,7 +38,6 @@ client.on('message', async message => {
         }
 
         if (message.mentions.has(client.user)) {
-             //fetches an URL from the API
             let kata = data.kata_kata
             let rep = kata[Math.floor(Math.random()*kata.length)]
             message.reply(rep);
@@ -52,12 +51,21 @@ client.on('message', async message => {
                 let helper = new MessageEmbed()
                 .setColor("#ff00dd")
                 .setAuthor("Command List", "https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg")
-                .setDescription("Gak ada fitur apa-apa, cuma gabut aja mageran.")
+                .setDescription("Gak ada fitur apa-apa, cuma gabut aja.")
                 .addFields(
-                    { name: '**Mandi**', value: '`koro mandi <mention>`' },
+                    { name: '**Quote**', value: '`koro quote`' },
+                    { name: '**Gelud**', value: '`koro gelud`' },
                     { name: '**Nyengir**', value: '`koro nyengir`' },
-                    { name: '**Yeet**', value: '`koro yeet`' },
+                    { name: '**Garing**', value: '`koro garing`' },
+                    { name: '**Ntah**', value: '`koro ntah`' },
                     { name: '**Lightstick**', value: '`koro ls`' },
+                    { name: '**Mandi**', value: '`koro mandi <mention>`' },
+                    { name: '**Yeet**', value: '`koro yeet <mention>`' },
+                    { name: '**Tendang**', value: '`koro tendang <mention>`' },
+                    { name: '**Tampar**', value: '`koro tampar <mention>`' },
+                    { name: '**Bully**', value: '`koro bully <mention>`' },
+                    { name: '**Bonk**', value: '`koro bonk <mention>`' },
+                    { name: '**Jilat**', value: '`koro jilat <mention>`' },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
