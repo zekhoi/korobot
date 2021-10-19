@@ -69,21 +69,27 @@ client.on('message', async message => {
                 .setAuthor("Command List", "https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg")
                 .setDescription("Gak ada fitur apa-apa, cuma gabut aja.")
                 .addFields(
-                    { name: '**Quote**', value: '`koro quote`' },
-                    { name: '**Gelud**', value: '`koro gelud`' },
-                    { name: '**Nyengir**', value: '`koro nyengir`' },
-                    { name: '**Garing**', value: '`koro garing`' },
-                    { name: '**Malu**', value: '`koro malu`' },
-                    { name: '**Genit**', value: '`koro genit`' },
-                    { name: '**Ntah**', value: '`koro ntah`' },
-                    { name: '**Lightstick**', value: '`koro ls`' },
-                    { name: '**Mandi**', value: '`koro mandi <mention>`' },
-                    { name: '**Yeet**', value: '`koro yeet <mention>`' },
-                    { name: '**Tendang**', value: '`koro tendang <mention>`' },
-                    { name: '**Tampar**', value: '`koro tampar <mention>`' },
-                    { name: '**Bully**', value: '`koro bully <mention>`' },
-                    { name: '**Bonk**', value: '`koro bonk <mention>`' },
-                    { name: '**Jilat**', value: '`koro jilat <mention>`' },
+                    { name: '**Quote**', value: '`koro quote`', inline: true },
+                    { name: '**Gelud**', value: '`koro gelud`', inline: true },
+                    { name: '**Nyengir**', value: '`koro nyengir`', inline: true },
+                    { name: '**Garing**', value: '`koro garing`', inline: true },
+                    { name: '**Malu**', value: '`koro malu`', inline: true },
+                    { name: '**Genit**', value: '`koro genit`', inline: true },
+                    { name: '**Ntah**', value: '`koro ntah`', inline: true },
+                    { name: '**Nangis**', value: '`koro nangis`', inline: true },
+                    { name: '**Bingung**', value: '`koro bingung`', inline: true },
+                    { name: '**Mantap**', value: '`koro mantap`', inline: true },
+                    { name: '**Bosen**', value: '`koro bosen`', inline: true },
+                    { name: '**Mutung**', value: '`koro mutung`', inline: true },
+                    { name: '**Tidur**', value: '`koro tidur`', inline: true },
+                    { name: '**Lightstick**', value: '`koro ls`', inline: true },
+                    { name: '**Mandi**', value: '`koro mandi <mention>`', inline: true },
+                    { name: '**Yeet**', value: '`koro yeet <mention>`', inline: true },
+                    { name: '**Tendang**', value: '`koro tendang <mention>`', inline: true },
+                    { name: '**Tampar**', value: '`koro tampar <mention>`', inline: true },
+                    { name: '**Bully**', value: '`koro bully <mention>`', inline: true },
+                    { name: '**Bonk**', value: '`koro bonk <mention>`', inline: true },
+                    { name: '**Jilat**', value: '`koro jilat <mention>`', inline: true },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
@@ -111,8 +117,16 @@ client.on('message', async message => {
                 break;
 
             case "gelud":
-                let musuh = args
-                message.channel.send("Mana yang ngajak gelud? Ayo gelud sini!"); //send the image URL
+                let gelud = [
+                    "Mana yang ngajak gelud? Ayo gelud sini!",
+                    "Sini bawa bapakmu kita tarung!",
+                    "Ayo by one!",
+                    "Jagoan kah bos?",
+                    "Omong doang lo, beraninya kagak",
+                    "Talenta sini kalo berani!",
+                ]
+                let gelut = gelud[Math.floor(Math.random()*gelud.length)]
+                message.channel.send(gelut); //send the image URL
                 break;
 
             case "nyengir":
@@ -145,6 +159,31 @@ client.on('message', async message => {
             case "nangis":
                 let nangis = await getNeko("cry")
                 message.channel.send(nangis); //send the image URL
+                break;
+
+            case "bingung":
+                let bingung = await getNeko("think")
+                message.channel.send(bingung); //send the image URL
+                break;
+            
+            case "mantap":
+                let mantap = await getNeko("thumbsup")
+                message.channel.send(mantap); //send the image URL
+                break;
+                
+            case "bosen":
+                let bosen = await getNeko("bored")
+                message.channel.send(bosen); //send the image URL
+                break;
+
+            case "mutung":
+                let mutung = await getNeko("pout")
+                message.channel.send(mutung); //send the image URL
+                break;
+    
+            case "tidur":
+                let tidur = await getNeko("sleep")
+                message.channel.send(tidur); //send the image URL
                 break;
     
             case "mandi":
