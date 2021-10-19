@@ -57,6 +57,8 @@ client.on('message', async message => {
                     { name: '**Gelud**', value: '`koro gelud`' },
                     { name: '**Nyengir**', value: '`koro nyengir`' },
                     { name: '**Garing**', value: '`koro garing`' },
+                    { name: '**Malu**', value: '`koro malu`' },
+                    { name: '**Genit**', value: '`koro genit`' },
                     { name: '**Ntah**', value: '`koro ntah`' },
                     { name: '**Lightstick**', value: '`koro ls`' },
                     { name: '**Mandi**', value: '`koro mandi <mention>`' },
@@ -79,11 +81,6 @@ client.on('message', async message => {
                 message.reply("Iya kak maaf :("); //send the image URL
                 break;
 
-            case "gelud":
-                let musuh = args
-                message.channel.send("Mana yang ngajak gelud? Ayo gelud sini!"); //send the image URL
-                break;
-
             case "rana":
                 message.reply("Hmmmm");
                 break;
@@ -97,6 +94,11 @@ client.on('message', async message => {
                 message.channel.send(lightstick); //send the image URL
                 break;
 
+            case "gelud":
+                let musuh = args
+                message.channel.send("Mana yang ngajak gelud? Ayo gelud sini!"); //send the image URL
+                break;
+
             case "nyengir":
                 let images = data.nyengir
                 let nyengir = images[Math.floor(Math.random()*images.length)]
@@ -107,6 +109,17 @@ client.on('message', async message => {
                 let garing = await getWaifu("cringe")
                 message.channel.send(garing); //send the image URL
                 break;
+                
+            case "malu":
+                let malu = await getWaifu("blush")
+                message.channel.send(malu); //send the image URL
+                break;
+                
+            case "genit":
+                let genit = await getWaifu("wink")
+                message.channel.send(genit); //send the image URL
+                break;
+                
                 
             case "ntah":
                 let ntah = await getNeko("shrug")
