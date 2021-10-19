@@ -25,7 +25,6 @@ client.on('ready', () => {
             }
         ]
         let current = status[Math.floor(Math.random()*status.length)]
-        console.log(current)
         client.user.setActivity(current.name, { type: current.type });
     }, 300000);
 });
