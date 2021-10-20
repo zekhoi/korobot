@@ -2,6 +2,7 @@ const { Client, MessageEmbed } = require("discord.js");
 const { getQuote, getNeko, getWaifu } = require("./function.js");
 const config = require("./config.json");
 const data = require("./data.json");
+const kalimat = require("./bacot.json");
 
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
@@ -9,7 +10,8 @@ const prefix = config.PREFIX;
 
 client.on('ready', () => {
     console.log("We are online!");
-    setInterval(() => {
+        let code = client.channels.cache.get("884370401659092992")
+        let spam = kalimat.kata_kata
         let status = [
             {
                 name : "HATI DAEM",
@@ -26,12 +28,19 @@ client.on('ready', () => {
         ]
         let current = status[Math.floor(Math.random()*status.length)]
         client.user.setActivity(current.name, { type: current.type });
-    },10000);
+
+        setInterval(() => {
+            code.sendTyping()
+            setTimeout(() => {
+                let bacot = spam[Math.floor(Math.random()*spam.length)]
+                code.send(bacot)
+            }, 3000);
+        },1800000);
 });
 
 
 client.on('message', async message => {
-    if(message.channelId == 884370401659092992) return;
+    // if(message.channelId == 884370401659092992) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
@@ -44,6 +53,19 @@ client.on('message', async message => {
     // console.log(content)
     // console.log(message)
     try {
+
+        if (message.mentions.has(client.user)) {
+            if(message.channelId != 884370401659092992) return;
+            message.channel.sendTyping()
+            setTimeout(() => {
+                let kata = data.kata_kata
+                let rep = kata[Math.floor(Math.random()*kata.length)]
+                message.reply(rep);
+            }, 3000);
+            
+            return;
+        }
+        
         if(filter.includes("loli") || filter.includes("loliku")  || filter.includes("istriku") || filter.includes("fbi")){
             message.channel.sendTyping()
             setTimeout(() => {
@@ -70,7 +92,7 @@ client.on('message', async message => {
             return;
         }
 
-        if(content == "pagi" || content == "selamat pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..."){
+        if(content == "pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..." || content == "selamat pagi" || content == "selamat pagii" || content == "selamat pagiii"){
             message.channel.sendTyping()
             setTimeout(() => {
                 let greets = data.greets
@@ -84,13 +106,6 @@ client.on('message', async message => {
             message.reply(`Ada perlu apa ${message.author} manggil semua orang? Mau tawuran kah?`);
             return;
         }
-
-        // if (message.mentions.has(client.user)) {
-        //     let kata = data.kata_kata
-        //     let rep = kata[Math.floor(Math.random()*kata.length)]
-        //     message.reply(rep);
-        //     return;
-        // }
 
         if (!content.startsWith(prefix) || message.author.bot) return;
 
@@ -128,11 +143,15 @@ client.on('message', async message => {
                 break;
     
             case "jess":
-                message.channel.send("Jess cuma punya Koro!");
+                setTimeout(() => {
+                    message.channel.send("Jess cuma punya Koro!");
+                }, 2000);
                 break;
             
             case "ngeselin":
-                message.reply("Iya kak maaf :("); //send the image URL
+                setTimeout(() => {
+                    message.reply("Iya kak maaf :(");
+                }, 2000); //send the image URL
                 break;
 
             case "rana":
@@ -165,60 +184,137 @@ client.on('message', async message => {
                 break;
 
             case "nyengir":
-                let images = data.nyengir
-                let nyengir = images[Math.floor(Math.random()*images.length)]
-                message.channel.send(nyengir); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(() => {
+                    let nyengir_data = data.nyengir
+                    let nyengir_img = nyengir_data[Math.floor(Math.random()*nyengir_data.length)]
+                    let nyengir = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:grin: **${message.author.username}** : Muhehehehehe `)
+                    .setImage(nyengir_img)
+                    message.channel.send({ embeds: [nyengir] });
+                }, 100);
                 break;
                 
             case "garing":
-                let garing = await getWaifu("cringe")
-                message.channel.send(garing); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let garing_img = await getWaifu("cringe")
+                    let garing = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:neutral_face: **${message.author.username}** cringe beut iyuh`)
+                    .setImage(garing_img)
+                    message.channel.send({ embeds: [garing] });
+                }, 100);
                 break;
                 
             case "malu":
-                let malu = await getWaifu("blush")
-                message.channel.send(malu); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let malu_img = await getWaifu("blush")
+                    let malu = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:blush: **${message.author.username}** lagi tidur`)
+                    .setImage(malu_img)
+                    message.channel.send({ embeds: [malu] });
+                }, 100);
                 break;
                 
             case "genit":
-                let genit = await getWaifu("wink")
-                message.channel.send(genit); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let genit_img = await getWaifu("wink")
+                    let genit = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:kissing_closed_eyes: **${message.author.username}** lagi tidur`)
+                    .setImage(genit_img)
+                    message.channel.send({ embeds: [genit] });
+                }, 100);
                 break;
                 
                 
             case "ntah":
-                let ntah = await getNeko("shrug")
-                message.channel.send(ntah); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let ntah_img = await getNeko("shrug")
+                    let ntah = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:thinking: **${message.author.username}** lagi tidur`)
+                    .setImage(ntah_img)
+                    message.channel.send({ embeds: [ntah] });
+                }, 100);
                 break;
 
             case "nangis":
-                let nangis = await getNeko("cry")
-                message.channel.send(nangis); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let nangis_img = await getNeko("cry")
+                    let nangis = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:cry: **${message.author.username}** lagi tidur`)
+                    .setImage(nangis_img)
+                    message.channel.send({ embeds: [nangis] });
+                }, 100);
                 break;
 
             case "bingung":
-                let bingung = await getNeko("think")
-                message.channel.send(bingung); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bingung_img = await getNeko("think")
+                    let bingung = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:confused: **${message.author.username}** lagi tidur`)
+                    .setImage(bingung_img)
+                    message.channel.send({ embeds: [bingung] });    
+                }, 100);
                 break;
             
             case "mantap":
-                let mantap = await getNeko("thumbsup")
-                message.channel.send(mantap); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let mantap_img = await getNeko("thumbsup")
+                    let mantap = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:thumbsup: **${message.author.username}** bilang kamu mantap`)
+                    .setImage(mantap_img)
+                    message.channel.send({ embeds: [mantap] });
+                }, 100);
                 break;
                 
             case "bosen":
-                let bosen = await getNeko("bored")
-                message.channel.send(bosen); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bosen_img = await getNeko("bored")
+                    let bosen = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:sleeping: **${message.author.username}** lagi bosen nih`)
+                    .setImage(bosen_img)
+                    message.channel.send({ embeds: [bosen] });
+                }, 100);
                 break;
 
             case "mutung":
-                let mutung = await getNeko("pout")
-                message.channel.send(mutung); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let mutung_img = await getNeko("pout")
+                    let mutung = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:sleeping: **${message.author.username}** lagi ngambek gara-gara kamu`)
+                    .setImage(mutung_img)
+                    message.channel.send({ embeds: [mutung] });
+                }, 100);
                 break;
     
             case "tidur":
-                let tidur = await getNeko("sleep")
-                message.channel.send(tidur); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let tidur_img = await getNeko("sleep")
+                    let tidur = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:sleeping: **${message.author.username}** lagi tidur`)
+                    .setImage(tidur_img)
+                    message.channel.send({ embeds: [tidur] });
+                }, 100);
                 break;
     
             case "mandi":
@@ -227,13 +323,16 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let bath = data.mandi
-                let mandi = bath[Math.floor(Math.random()*bath.length)]
-                let embed = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:bathtub:  **${message.author.username}** mandiin **${mentioned.username}**`)
-                .setImage(mandi)
-                message.channel.send({ embeds: [embed] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bath_data = data.mandi
+                    let mandi_img = bath_data[Math.floor(Math.random()*bath_data.length)]
+                    let mandi = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:bathtub:  **${message.author.username}** mandiin **${mentioned.username}**`)
+                    .setImage(mandi_img)
+                    message.channel.send({ embeds: [mandi] });
+                }, 100);
                 break;
 
             case "yeet":
@@ -242,12 +341,15 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let yeet_img = await getWaifu("yeet")
-                let yeet = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:raised_hands: **${message.author.username}** ngelempar **${mentioned.username}**`)
-                .setImage(yeet_img)
-                message.channel.send({ embeds: [yeet] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let yeet_img = await getWaifu("yeet")
+                    let yeet = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:raised_hands: **${message.author.username}** ngelempar **${mentioned.username}**`)
+                    .setImage(yeet_img)
+                    message.channel.send({ embeds: [yeet] });
+                }, 100);
                 break;
                 
             case "tendang":
@@ -256,12 +358,15 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let tendang_img = await getWaifu("kick")
-                let tendang = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:raised_hands: **${message.author.username}** nendang **${mentioned.username}**`)
-                .setImage(tendang_img)
-                message.channel.send({ embeds: [tendang] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let tendang_img = await getWaifu("kick")
+                    let tendang = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:foot: **${message.author.username}** nendang **${mentioned.username}**`)
+                    .setImage(tendang_img)
+                    message.channel.send({ embeds: [tendang] });
+                }, 100);
                 break;
 
             case "tampar":
@@ -270,12 +375,15 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let tampar_img = await getWaifu("slap")
-                let tampar = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:raised_hands: **${message.author.username}** nampar **${mentioned.username}**`)
-                .setImage(tampar_img)
-                message.channel.send({ embeds: [tampar] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let tampar_img = await getWaifu("slap")
+                    let tampar = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:hand_splayed: **${message.author.username}** nampar **${mentioned.username}**`)
+                    .setImage(tampar_img)
+                    message.channel.send({ embeds: [tampar] });
+                }, 100);
                 break;
             
             case "jilat":
@@ -284,12 +392,15 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let jilat_img = await getWaifu("lick")
-                let jilat = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:tongue: **${message.author.username}** ngejilat **${mentioned.username}**`)
-                .setImage(jilat_img)
-                message.channel.send({ embeds: [jilat] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let jilat_img = await getWaifu("lick")
+                    let jilat = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:tongue: **${message.author.username}** ngejilat **${mentioned.username}**`)
+                    .setImage(jilat_img)
+                    message.channel.send({ embeds: [jilat] });
+                }, 100);
                 break;
                 
             case "bully":
@@ -298,12 +409,15 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let bully_img = await getWaifu("bully")
-                let bully = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:pinching_hand: **${message.author.username}** ngebully **${mentioned.username}**`)
-                .setImage(bully_img)
-                message.channel.send({ embeds: [bully] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bully_img = await getWaifu("bully")
+                    let bully = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:pinching_hand: **${message.author.username}** ngebully **${mentioned.username}**`)
+                    .setImage(bully_img)
+                    message.channel.send({ embeds: [bully] });
+                }, 100);
                 break;
 
             case "bonk":
@@ -312,12 +426,32 @@ client.on('message', async message => {
                     message.reply("Astagfirullah, istigfar. . .");
                     return;
                 }
-                let bonk_img = await getWaifu("bonk")
-                let bonk = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setDescription(`:field_hockey: **${message.author.username}** ngebonk **${mentioned.username}**`)
-                .setImage(bonk_img)
-                message.channel.send({ embeds: [bonk] });
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bonk_img = await getWaifu("bonk")
+                    let bonk = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:field_hockey: **${message.author.username}** ngebonk **${mentioned.username}**`)
+                    .setImage(bonk_img)
+                    message.channel.send({ embeds: [bonk] });
+                }, 100);
+                break;
+            
+            case "suap":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let suap_img = await getNeko("feed")
+                    let suap = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:pie: **${message.author.username}** nyuapin **${mentioned.username}**`)
+                    .setImage(suap_img)
+                    message.channel.send({ embeds: [suap] });
+                }, 100);
                 break;
                 
             case "quote":
