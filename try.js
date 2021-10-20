@@ -6,7 +6,7 @@ const kalimat = require("./bacot.json");
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 client.on('ready', client => {
-    let code = client.channels.cache.get("899131952572014646")
+    let code = client.channels.cache.get("884370401659092992")
     let spam = kalimat.kata_kata
     setInterval(() => {
         code.sendTyping()
@@ -14,7 +14,7 @@ client.on('ready', client => {
             let bacot = spam[Math.floor(Math.random()*spam.length)]
             code.send(bacot)
         }, 3000);
-    },3000000);
+    },60000);
 })
 
 client.on('message', async message => {
