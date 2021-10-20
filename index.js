@@ -45,30 +45,39 @@ client.on('message', async message => {
     // console.log(message)
     try {
         if(filter.includes("loli") || filter.includes("loliku")  || filter.includes("istriku") || filter.includes("fbi")){
-            let department = data.department
-            let agent = department[Math.floor(Math.random()*department.length)]
-            let fbi = new MessageEmbed()
+            message.channel.sendTyping()
+            setTimeout(() => {
+                let department = data.department
+                let agent = department[Math.floor(Math.random()*department.length)]
+                let fbi = new MessageEmbed()
                 .setColor("#ff00dd")
                 .setDescription(`:man_police_officer: **${agent.halo}**`)
                 .setImage(agent.image)
                 message.channel.send({ embeds: [fbi] });
-            return;
+                return;
+            }, 2000);
         }
 
         if(filter.includes("coklat") || filter.includes("cokelat") || filter.includes("chocolate")){
-            let coklat = new MessageEmbed()
+            message.channel.sendTyping()
+            setTimeout(() => {
+                let coklat = new MessageEmbed()
                 .setColor("#ff00dd")
                 .setDescription(`:chocolate_bar:  **Ada yang bilang coklat?**`)
                 .setImage("https://i.pinimg.com/originals/68/d9/fc/68d9fcbcc7cc1d8c1c1015b3dbc5c4ee.gif")
                 message.channel.send({ embeds: [coklat] });
-            return;
+                return;
+            }, 2000);
         }
 
         if(content == "pagi" || content == "selamat pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..."){
-            let greets = data.greets
-            let pagi = greets[Math.floor(Math.random()*greets.length)]
-            message.reply(pagi)
-            return;
+            message.channel.sendTyping()
+            setTimeout(() => {
+                let greets = data.greets
+                let pagi = greets[Math.floor(Math.random()*greets.length)]
+                message.reply(pagi)
+                return;
+            }, 2000);
         }
 
         if(message.mentions.everyone){
@@ -140,16 +149,19 @@ client.on('message', async message => {
                 break;
 
             case "gelud":
-                let gelud = [
-                    "Mana yang ngajak gelud? Ayo gelud sini!",
-                    "Sini bawa bapakmu kita tarung!",
-                    "Ayo by one!",
-                    "Jagoan kah bos?",
-                    "Omong doang lo, beraninya kagak",
-                    "Talenta sini kalo berani!",
-                ]
-                let gelut = gelud[Math.floor(Math.random()*gelud.length)]
-                message.channel.send(gelut); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(() => {
+                    let gelud = [
+                        "Mana yang ngajak gelud? Ayo gelud sini!",
+                        "Sini bawa bapakmu kita tarung!",
+                        "Ayo by one!",
+                        "Jagoan kah bos?",
+                        "Omong doang lo, beraninya kagak",
+                        "Talenta sini kalo berani!",
+                    ]
+                    let gelut = gelud[Math.floor(Math.random()*gelud.length)]
+                    message.channel.send(gelut); //send the image URL
+                }, 2000);
                 break;
 
             case "nyengir":
@@ -309,14 +321,17 @@ client.on('message', async message => {
                 break;
                 
             case "quote":
-                let qdata = await getQuote()
-                let quote = new MessageEmbed()
-                .setColor("#ff00dd")
-                .setAuthor(`${qdata.character}`, "https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg")
-                .setDescription(`${qdata.quote}`)
-                .setFooter(`Anime : ${qdata.anime}`);
-                message.channel.send({ embeds: [quote] });
-                break;
+                message.channel.sendTyping()
+                setTimeout(() => {
+                    let qdata = await getQuote()
+                    let quote = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setAuthor(`${qdata.character}`, "https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg")
+                    .setDescription(`${qdata.quote}`)
+                    .setFooter(`Anime : ${qdata.anime}`);
+                    message.channel.send({ embeds: [quote] });
+                    break;
+                }, 2000);
         }
     }
 

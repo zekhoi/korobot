@@ -9,12 +9,12 @@ client.on('ready', client => {
     let code = client.channels.cache.get("899131952572014646")
     let spam = kalimat.kata_kata
     setInterval(() => {
-        let bacot = spam[Math.floor(Math.random()*spam.length)]
+        code.sendTyping()
         setTimeout(() => {
-            code.sendTyping()
-        }, 5000);
-        code.send(bacot)
-    },10000);
+            let bacot = spam[Math.floor(Math.random()*spam.length)]
+            code.send(bacot)
+        }, 3000);
+    },3000000);
 })
 
 client.on('message', async message => {
@@ -25,12 +25,17 @@ client.on('message', async message => {
 
     try {
         if (message.mentions.has(client.user)) {
-                let kata = data.kata_kata
-                let rep = kata[Math.floor(Math.random()*kata.length)]
-                message.reply(rep);
+                message.channel.sendTyping()
+                setTimeout(() => {
+                    let kata = data.kata_kata
+                    let rep = kata[Math.floor(Math.random()*kata.length)]
+                    message.reply(rep);
+                }, 3000);
+                
                 return;
             }
     } catch (error) {
+        message.channel.send(`**Astagfirullah error : ${error}**`)
         message.channel.send(`**Astagfirullah error**`)
     }
 })
