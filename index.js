@@ -163,7 +163,7 @@ client.on('message', async message => {
 
             case "stgf":
                 setTimeout(() => {
-                    message.reply("Astaghfirullah hal'adzim");
+                    message.channel.send("Astaghfirullah hal'adzim");
                 }, 2000);
                 break;
 
