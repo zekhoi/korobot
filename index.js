@@ -137,6 +137,7 @@ client.on('message', async message => {
                     { name: '**Bully**', value: '`koro bully <mention>`', inline: true },
                     { name: '**Bonk**', value: '`koro bonk <mention>`', inline: true },
                     { name: '**Jilat**', value: '`koro jilat <mention>`', inline: true },
+                    { name: '**Suap**', value: '`koro suap <mention>`', inline: true },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
@@ -251,7 +252,7 @@ client.on('message', async message => {
                     let nangis_img = await getNeko("cry")
                     let nangis = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:cry: **${message.author.username}** lagi sedih`)
+                    .setDescription(`:cry: **${message.author.username}** nangis`)
                     .setImage(nangis_img)
                     message.channel.send({ embeds: [nangis] });
                 }, 100);
@@ -287,7 +288,7 @@ client.on('message', async message => {
                     let bosen_img = await getNeko("bored")
                     let bosen = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:sleeping: **${message.author.username}** lagi bosen nih`)
+                    .setDescription(`:sleeping: **${message.author.username}** bosen nih`)
                     .setImage(bosen_img)
                     message.channel.send({ embeds: [bosen] });
                 }, 100);
@@ -299,7 +300,7 @@ client.on('message', async message => {
                     let mutung_img = await getNeko("pout")
                     let mutung = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:sleeping: **${message.author.username}** lagi ngambek gara-gara kamu`)
+                    .setDescription(`:sleeping: **${message.author.username}** ngambek gara-gara kamu`)
                     .setImage(mutung_img)
                     message.channel.send({ embeds: [mutung] });
                 }, 100);
@@ -311,7 +312,7 @@ client.on('message', async message => {
                     let tidur_img = await getNeko("sleep")
                     let tidur = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:sleeping: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:sleeping: **${message.author.username}** lagi bobo`)
                     .setImage(tidur_img)
                     message.channel.send({ embeds: [tidur] });
                 }, 100);
