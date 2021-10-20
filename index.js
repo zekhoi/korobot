@@ -214,7 +214,7 @@ client.on('message', async message => {
                     let malu_img = await getWaifu("blush")
                     let malu = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:blush: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:blush: **${message.author.username}** malu-malu`)
                     .setImage(malu_img)
                     message.channel.send({ embeds: [malu] });
                 }, 100);
@@ -226,7 +226,7 @@ client.on('message', async message => {
                     let genit_img = await getWaifu("wink")
                     let genit = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:kissing_closed_eyes: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:kissing_closed_eyes: **${message.author.username}** genit banget`)
                     .setImage(genit_img)
                     message.channel.send({ embeds: [genit] });
                 }, 100);
@@ -239,7 +239,7 @@ client.on('message', async message => {
                     let ntah_img = await getNeko("shrug")
                     let ntah = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:thinking: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:thinking: **${message.author.username}** gak tau`)
                     .setImage(ntah_img)
                     message.channel.send({ embeds: [ntah] });
                 }, 100);
@@ -251,7 +251,7 @@ client.on('message', async message => {
                     let nangis_img = await getNeko("cry")
                     let nangis = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:cry: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:cry: **${message.author.username}** lagi sedih`)
                     .setImage(nangis_img)
                     message.channel.send({ embeds: [nangis] });
                 }, 100);
@@ -263,7 +263,7 @@ client.on('message', async message => {
                     let bingung_img = await getNeko("think")
                     let bingung = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:confused: **${message.author.username}** lagi tidur`)
+                    .setDescription(`:confused: **${message.author.username}** kebingungan`)
                     .setImage(bingung_img)
                     message.channel.send({ embeds: [bingung] });    
                 }, 100);
