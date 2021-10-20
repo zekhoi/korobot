@@ -14,7 +14,7 @@ client.on('ready', client => {
             let bacot = spam[Math.floor(Math.random()*spam.length)]
             code.send(bacot)
         }, 3000);
-    },60000);
+    },1800000);
 })
 
 client.on('message', async message => {
