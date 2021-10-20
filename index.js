@@ -92,7 +92,7 @@ client.on('message', async message => {
             return;
         }
 
-        if(content == "pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..." || content == "selamat pagi" || content == "selamat pagii" || content == "selamat pagiii"){
+        if(content == "pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..." || content == "selamat pagi" || content == "selamat pagi.." || content == "selamat pagi..." || content == "selamat pagi...."){
             message.channel.sendTyping()
             setTimeout(() => {
                 let greets = data.greets
@@ -252,7 +252,7 @@ client.on('message', async message => {
                     let nangis_img = await getNeko("cry")
                     let nangis = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:cry: **${message.author.username}** nangis`)
+                    .setDescription(`:cry: **${message.author.username}** sedih gara-gara kamu`)
                     .setImage(nangis_img)
                     message.channel.send({ embeds: [nangis] });
                 }, 100);
