@@ -156,7 +156,15 @@ client.on('message', async message => {
                 break;
 
             case "rana":
-                message.reply("Hmmmm");
+                setTimeout(() => {
+                    message.reply("Hmmmm");
+                }, 5000);
+                break;
+
+            case "stgf":
+                setTimeout(() => {
+                    message.reply("Astaghfirullah hal'adzim");
+                }, 2000);
                 break;
 
             case "ls":
