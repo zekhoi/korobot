@@ -35,7 +35,7 @@ client.on('message', async message => {
                 return;
             }
     } catch (error) {
-        message.channel.send(`**Astagfirullah error : ${error}**`)
+        // message.channel.send(`**Astagfirullah error : ${error}**`)
         message.channel.send(`**Astagfirullah error**`)
     }
 })

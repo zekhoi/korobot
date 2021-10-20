@@ -54,8 +54,8 @@ client.on('message', async message => {
                 .setDescription(`:man_police_officer: **${agent.halo}**`)
                 .setImage(agent.image)
                 message.channel.send({ embeds: [fbi] });
-                return;
             }, 2000);
+            return;
         }
 
         if(filter.includes("coklat") || filter.includes("cokelat") || filter.includes("chocolate")){
@@ -66,8 +66,8 @@ client.on('message', async message => {
                 .setDescription(`:chocolate_bar:  **Ada yang bilang coklat?**`)
                 .setImage("https://i.pinimg.com/originals/68/d9/fc/68d9fcbcc7cc1d8c1c1015b3dbc5c4ee.gif")
                 message.channel.send({ embeds: [coklat] });
-                return;
             }, 2000);
+            return;
         }
 
         if(content == "pagi" || content == "selamat pagi" || content == "pagii" || content == "pagiii" || content == "pagi.." || content == "pagi..."){
@@ -76,8 +76,8 @@ client.on('message', async message => {
                 let greets = data.greets
                 let pagi = greets[Math.floor(Math.random()*greets.length)]
                 message.reply(pagi)
-                return;
             }, 2000);
+            return;
         }
 
         if(message.mentions.everyone){
