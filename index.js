@@ -26,11 +26,12 @@ client.on('ready', () => {
         ]
         let current = status[Math.floor(Math.random()*status.length)]
         client.user.setActivity(current.name, { type: current.type });
-    }, 300000);
+    },10000);
 });
 
 
 client.on('message', async message => {
+    if(message.channelId == 884370401659092992) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
