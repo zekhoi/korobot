@@ -252,7 +252,7 @@ client.on('message', async message => {
                     let nangis_img = await getNeko("cry")
                     let nangis = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:cry: **${message.author.username}** sedih gara-gara kamu`)
+                    .setDescription(`:sob: **${message.author.username}** sedih gara-gara kamu`)
                     .setImage(nangis_img)
                     message.channel.send({ embeds: [nangis] });
                 }, 100);
@@ -288,7 +288,7 @@ client.on('message', async message => {
                     let bosen_img = await getNeko("bored")
                     let bosen = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:sleeping: **${message.author.username}** bosen nih`)
+                    .setDescription(`:disappointed: **${message.author.username}** bosen nih`)
                     .setImage(bosen_img)
                     message.channel.send({ embeds: [bosen] });
                 }, 100);
@@ -300,7 +300,7 @@ client.on('message', async message => {
                     let mutung_img = await getNeko("pout")
                     let mutung = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:sleeping: **${message.author.username}** ngambek gara-gara kamu`)
+                    .setDescription(`:triumph: **${message.author.username}** ngambek gara-gara kamu`)
                     .setImage(mutung_img)
                     message.channel.send({ embeds: [mutung] });
                 }, 100);
