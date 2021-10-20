@@ -322,16 +322,16 @@ client.on('message', async message => {
                 
             case "quote":
                 message.channel.sendTyping()
+                let qdata = await getQuote()
                 setTimeout(() => {
-                    let qdata = await getQuote()
                     let quote = new MessageEmbed()
                     .setColor("#ff00dd")
                     .setAuthor(`${qdata.character}`, "https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg")
                     .setDescription(`${qdata.quote}`)
                     .setFooter(`Anime : ${qdata.anime}`);
                     message.channel.send({ embeds: [quote] });
-                    break;
                 }, 2000);
+                break;
         }
     }
 
