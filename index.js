@@ -80,7 +80,7 @@ client.on('message', async message => {
             return;
         }
 
-        if(filter.includes("coklat") || filter.includes("cokelat") || filter.includes("chocolate")){
+        if(filter.includes("coklat") || filter.includes("coklat?") ||filter.includes("cokelat")  ||filter.includes("cokelat?") || filter.includes("chocolate") || filter.includes("chocolate?")){
             message.channel.sendTyping()
             setTimeout(() => {
                 let coklat = new MessageEmbed()
