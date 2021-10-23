@@ -512,6 +512,23 @@ client.on('message', async message => {
                 }, 100);
                 break;
             
+            case "bunuh":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bunuh_img = await getWaifu("kill")
+                    let bunuh = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:drop_of_blood: Inna lillahi wainna ilaihi roji'un, **${mentioned.username}** dibunuh **${message.author.username}**`)
+                    .setImage(bunuh_img)
+                    message.channel.send({ embeds: [bunuh] });
+                }, 100);
+                break;
+
             case "quote":
                 message.channel.sendTyping()
                 let qdata = await getQuote()
