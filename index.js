@@ -40,7 +40,7 @@ client.on('ready', () => {
 
 
 client.on('message', async message => {
-    // if(message.channelId == 884370401659092992) return;
+    // if(message.channelId != 884370401659092992) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
@@ -51,7 +51,7 @@ client.on('message', async message => {
     let time = new Date().toLocaleTimeString('en-GB', { timeZone: "Asia/Jakarta" });
     console.log(`[${time}] ${content}`);
     // console.log(content)
-    // console.log(message)
+    // console.log(message.mentions.users)
     try {
 
         if (message.mentions.has(client.user)) {
