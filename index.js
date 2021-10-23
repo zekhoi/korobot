@@ -66,7 +66,7 @@ client.on('message', async message => {
             return;
         }
         
-        if(filter.includes("loli") || filter.includes("loliku")  || filter.includes("istriku") || filter.includes("fbi")){
+        if(filter.includes("loli") || filter.includes("loliku") || filter.includes("ngarungin")  || filter.includes("istriku") || filter.includes("fbi") || filter.includes("karungin")){
             message.channel.sendTyping()
             setTimeout(() => {
                 let department = data.department
@@ -129,6 +129,7 @@ client.on('message', async message => {
                     { name: '**Bosen**', value: '`koro bosen`', inline: true },
                     { name: '**Mutung**', value: '`koro mutung`', inline: true },
                     { name: '**Tidur**', value: '`koro tidur`', inline: true },
+                    { name: '**Ngakak**', value: '`koro ngakak`', inline: true },
                     { name: '**Lightstick**', value: '`koro ls`', inline: true },
                     { name: '**Mandi**', value: '`koro mandi <mention>`', inline: true },
                     { name: '**Yeet**', value: '`koro yeet <mention>`', inline: true },
@@ -138,6 +139,8 @@ client.on('message', async message => {
                     { name: '**Bonk**', value: '`koro bonk <mention>`', inline: true },
                     { name: '**Jilat**', value: '`koro jilat <mention>`', inline: true },
                     { name: '**Suap**', value: '`koro suap <mention>`', inline: true },
+                    { name: '**Peluk**', value: '`koro peluk <mention>`', inline: true },
+                    { name: '**Gigit**', value: '`koro gigit <mention>`', inline: true },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
@@ -211,7 +214,7 @@ client.on('message', async message => {
                     let garing_img = await getWaifu("cringe")
                     let garing = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:neutral_face: **${message.author.username}** cringe beut iyuh`)
+                    .setDescription(`:neutral_face: **${message.author.username}** : cringe beut iyuh`)
                     .setImage(garing_img)
                     message.channel.send({ embeds: [garing] });
                 }, 100);
@@ -325,7 +328,19 @@ client.on('message', async message => {
                     message.channel.send({ embeds: [tidur] });
                 }, 100);
                 break;
-    
+
+            case "ngakak":
+                    message.channel.sendTyping()
+                    setTimeout(async () => {
+                        let ngakak_img = await getNeko("laugh")
+                        let ngakak = new MessageEmbed()
+                        .setColor("#ff00dd")
+                        .setDescription(`:laughing: **${message.author.username}** ngakak betul`)
+                        .setImage(ngakak_img)
+                        message.channel.send({ embeds: [ngakak] });
+                    }, 100);
+                    break;
+
             case "mandi":
                 if (!mentioned) return;
                 if(message.author.id == mentioned.id){
@@ -463,6 +478,40 @@ client.on('message', async message => {
                 }, 100);
                 break;
                 
+            case "gigit":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let gigit_img = await getNeko("bite")
+                    let gigit = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:smiley_cat: **${message.author.username}** ngegigit **${mentioned.username}**`)
+                    .setImage(gigit_img)
+                    message.channel.send({ embeds: [gigit] });
+                }, 100);
+                break;
+
+            case "peluk":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let peluk_img = await getNeko("hug")
+                    let peluk = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:people_hugging: **${message.author.username}** meluk **${mentioned.username}**`)
+                    .setImage(peluk_img)
+                    message.channel.send({ embeds: [peluk] });
+                }, 100);
+                break;
+            
             case "quote":
                 message.channel.sendTyping()
                 let qdata = await getQuote()
