@@ -172,9 +172,7 @@ client.on('message', async message => {
                 break;
 
             case "ls":
-                let ls = [
-                    "https://c.tenor.com/zWF-SI9SQdwAAAAC/cat-dancing.gif"
-                ]; //fetches an URL from the API
+                let ls = data.lightstick
                 
                 message.channel.sendTyping()
                 setTimeout(async () => {
