@@ -173,13 +173,12 @@ client.on('message', async message => {
 
             case "ls":
                 let ls = data.lightstick
-                
                 message.channel.sendTyping()
                 setTimeout(async () => {
                     let lightstick_image = ls[Math.floor(Math.random()*ls.length)]
                     let lightstick = new MessageEmbed()
                     .setColor("#ff00dd")
-                    .setDescription(`:clap: **KYYAAAAHHHH WANGY WANGY WANGY**`)
+                    .setDescription(`:partying_face: **KYYAAAAHHHH WANGY WANGY WANGY**`)
                     .setImage(lightstick_image)
                     message.channel.send({ embeds: [lightstick] });
                 }, 100);
@@ -532,6 +531,40 @@ client.on('message', async message => {
                     .setDescription(`:drop_of_blood: Inna lillahi wainna ilaihi roji'un, **${mentioned.username}** dibunuh **${message.author.username}**`)
                     .setImage(bunuh_img)
                     message.channel.send({ embeds: [bunuh] });
+                }, 100);
+                break;
+
+            case "elus":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let elus_img = await getNeko("pat")
+                    let elus = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:smiling_face_with_3_hearts: **${message.author.username}** ngelus **${mentioned.username}**, gemes~`)
+                    .setImage(elus_img)
+                    message.channel.send({ embeds: [elus] });
+                }, 100);
+                break;
+
+            case "pat":
+                if (!mentioned) return;
+                if(message.author.id == mentioned.id){
+                    message.reply("Astagfirullah, istigfar. . .");
+                    return;
+                }
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let pat_img = await getWaifu("pat")
+                    let pat = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:smiling_face_with_3_hearts: **${message.author.username}** pat pat **${mentioned.username}**, unyu~`)
+                    .setImage(pat_img)
+                    message.channel.send({ embeds: [pat] });
                 }, 100);
                 break;
 
