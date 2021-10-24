@@ -142,6 +142,8 @@ client.on('message', async message => {
                     { name: '**Peluk**', value: '`koro peluk <mention>`', inline: true },
                     { name: '**Gigit**', value: '`koro gigit <mention>`', inline: true },
                     { name: '**Bunuh**', value: '`koro bunuh <mention>`', inline: true },
+                    { name: '**Elus**', value: '`koro elus <mention>`', inline: true },
+                    { name: '**Pat**', value: '`koro pat <mention>`', inline: true },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
