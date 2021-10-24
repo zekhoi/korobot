@@ -141,6 +141,7 @@ client.on('message', async message => {
                     { name: '**Suap**', value: '`koro suap <mention>`', inline: true },
                     { name: '**Peluk**', value: '`koro peluk <mention>`', inline: true },
                     { name: '**Gigit**', value: '`koro gigit <mention>`', inline: true },
+                    { name: '**Bunuh**', value: '`koro bunuh <mention>`', inline: true },
                 )
                 .setFooter('Made by koro', 'https://cdn.discordapp.com/attachments/896402692925190167/899665193037099058/attachment_126736972.jpeg');
                 message.channel.send({ embeds: [helper] });
@@ -175,8 +176,15 @@ client.on('message', async message => {
                     "https://c.tenor.com/zWF-SI9SQdwAAAAC/cat-dancing.gif"
                 ]; //fetches an URL from the API
                 
-                let lightstick = ls[Math.floor(Math.random()*ls.length)]
-                message.channel.send(lightstick); //send the image URL
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let lightstick_image = ls[Math.floor(Math.random()*ls.length)]
+                    let lightstick = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:clap: **KYYAAAAHHHH WANGY WANGY WANGY**`)
+                    .setImage(lightstick_image)
+                    message.channel.send({ embeds: [lightstick] });
+                }, 100);
                 break;
 
             case "gelud":
