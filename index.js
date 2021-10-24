@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require("discord.js");
-const { getQuote, getNeko, getWaifu } = require("./function.js");
+const { getQuote, getNeko, getWaifu, wutNime, conSec, toPercent } = require("./function.js");
 const config = require("./config.json");
 const data = require("./data.json");
 const kalimat = require("./bacot.json");
@@ -40,7 +40,7 @@ client.on('ready', () => {
 
 
 client.on('message', async message => {
-    // if(message.channelId != 884370401659092992) return;
+    if(message.channelId != 899131952572014646) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
@@ -50,8 +50,7 @@ client.on('message', async message => {
     let mentioned = message.mentions.users.first()
     let time = new Date().toLocaleTimeString('en-GB', { timeZone: "Asia/Jakarta" });
     console.log(`[${time}] ${content}`);
-    // console.log(content)
-    // console.log(message.mentions.users)
+    // console.log(attachment)
     try {
 
         if (message.mentions.has(client.user)) {
@@ -570,9 +569,28 @@ client.on('message', async message => {
                 }, 100);
                 break;
 
-            case "quote":
+            case "wutnime":
+                if (!message.attachments) return;
+                let attachment = message.attachments.first().url
+                let details = await wutNime(attachment)
                 message.channel.sendTyping()
+                setTimeout(() => {
+                    let anime = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setTitle(details.title)
+                    .addFields(
+                        { name: '**Similarity**', value: `${toPercent(details.similarity) + "%"}` },
+                        { name: '**Episode**', value: `${details.episode ? details.episode : "Special"}` },
+                        { name: '**Minutes**', value: `${conSec(details.from)} - ${conSec(details.to)}` },
+                    )
+                    .setImage(details.image)
+                    message.channel.send({ embeds: [anime] });
+                }, 2000);
+                break;
+
+            case "quote":
                 let qdata = await getQuote()
+                message.channel.sendTyping()
                 setTimeout(() => {
                     let quote = new MessageEmbed()
                     .setColor("#ff00dd")
@@ -586,8 +604,8 @@ client.on('message', async message => {
     }
 
     catch(err) {
-        // message.channel.send(`**Astagfirullah error : ${err}**`)
-        message.channel.send(`**Astagfirullah error**`)
+        message.channel.send(`**Astagfirullah error : ${err}**`)
+        // message.channel.send(`**Astagfirullah error**`)
     }
     
 })

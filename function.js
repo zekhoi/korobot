@@ -17,8 +17,38 @@ const getWaifu = async (categoty) => {
     return waifu.data.url
 }
 
+const wutNime = async (image_url) => {
+    let details
+    await axios.get( `https://api.trace.moe/search?url=${encodeURIComponent(image_url
+    )}`).then((result) => {
+        anime = result.data.result[0]
+        // console.log(anime)
+        details = {
+            title : anime.filename.split('] ').pop().split(' -')[0],
+            image : anime.image,
+            similarity : anime.similarity,
+            episode : anime.episode,
+            from : anime.from,
+            to : anime.to
+        }
+    })
+    
+    return details
+}
+
+const conSec = (second) => {
+    return(second-(second%=60))/60+(9<second?':':':0')+Math.floor(second)
+}
+
+const toPercent = (decimal) => {
+    return Math.floor(decimal * 100)
+}
+
 module.exports = {
     getQuote,
     getNeko,
-    getWaifu
+    getWaifu,
+    wutNime,
+    conSec,
+    toPercent
 }
