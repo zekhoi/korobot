@@ -335,6 +335,19 @@ client.on('message', async message => {
                 }, 100);
                 break;
 
+            case "bapacc":
+                message.channel.sendTyping()
+                setTimeout(async () => {
+                    let bapac = data.bapacc
+                    let bapacc_img = bapac[Math.floor(Math.random()*bapac.length)]
+                    let bapacc = new MessageEmbed()
+                    .setColor("#ff00dd")
+                    .setDescription(`:man: sini sama om`)
+                    .setImage(bapacc_img)
+                    message.channel.send({ embeds: [bapacc] });
+                }, 100);
+                break;
+
             case "ngakak":
                     message.channel.sendTyping()
                     setTimeout(async () => {
