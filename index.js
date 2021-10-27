@@ -39,7 +39,7 @@ client.on('ready', () => {
 
 
 client.on('messageCreate', async message => {
-    if(message.channelId != 899131952572014646) return;
+    // if(message.channelId != 899131952572014646) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
