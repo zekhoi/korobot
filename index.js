@@ -10,24 +10,25 @@ const prefix = config.PREFIX;
 
 client.on('ready', () => {
     console.log("We are online!");
+    let code = client.channels.cache.get("884370401659092992")
+    let spam = kalimat.kata_kata
+    let status = [
+        {
+            name : "HATI DAEM",
+            type : "LISTENING"
+        },
+        {
+            name : "PERASAANMU",
+            type : "PLAYING"
+        },
+        {
+            name : "MONCROT SERVER",
+            type : "WATCHING"
+        }
+    ]
+    let current = status[Math.floor(Math.random()*status.length)]
+    client.user.setActivity(current.name, { type: current.type });
         setInterval(() => {
-            let code = client.channels.cache.get("884370401659092992")
-            let spam = kalimat.kata_kata
-            let status = [
-                {
-                    name : "HATI DAEM",
-                    type : "LISTENING"
-                },
-                {
-                    name : "PERASAANMU",
-                    type : "PLAYING"
-                },
-                {
-                    name : "MONCROT SERVER",
-                    type : "WATCHING"
-                }
-            ]
-            let current = status[Math.floor(Math.random()*status.length)]
             client.user.setActivity(current.name, { type: current.type });
             code.sendTyping()
             setTimeout(() => {
