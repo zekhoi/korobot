@@ -10,26 +10,25 @@ const prefix = config.PREFIX;
 
 client.on('ready', () => {
     console.log("We are online!");
-        let code = client.channels.cache.get("884370401659092992")
-        let spam = kalimat.kata_kata
-        let status = [
-            {
-                name : "HATI DAEM",
-                type : "LISTENING"
-            },
-            {
-                name : "PERASAANMU",
-                type : "PLAYING"
-            },
-            {
-                name : "MONCROT SERVER",
-                type : "WATCHING"
-            }
-        ]
-        let current = status[Math.floor(Math.random()*status.length)]
-        client.user.setActivity(current.name, { type: current.type });
-
         setInterval(() => {
+            let code = client.channels.cache.get("884370401659092992")
+            let spam = kalimat.kata_kata
+            let status = [
+                {
+                    name : "HATI DAEM",
+                    type : "LISTENING"
+                },
+                {
+                    name : "PERASAANMU",
+                    type : "PLAYING"
+                },
+                {
+                    name : "MONCROT SERVER",
+                    type : "WATCHING"
+                }
+            ]
+            let current = status[Math.floor(Math.random()*status.length)]
+            client.user.setActivity(current.name, { type: current.type });
             code.sendTyping()
             setTimeout(() => {
                 let bacot = spam[Math.floor(Math.random()*spam.length)]
@@ -39,7 +38,7 @@ client.on('ready', () => {
 });
 
 
-client.on('message', async message => {
+client.on('messageCreate', async message => {
     // if(message.channelId != 899131952572014646) return;
 
     let content = message.content.toLowerCase()
@@ -106,6 +105,14 @@ client.on('message', async message => {
             return;
         }
 
+        if(message.mentions.users.first().id == 449765142993829888){
+            message.channel.sendTyping()
+            setTimeout(() => {
+                message.reply(`${message.author} Ada perlu apa sama lord?`);
+            }, 2000);
+            return;
+        }
+
         if (!content.startsWith(prefix) || message.author.bot) return;
 
         switch (command) {
@@ -162,7 +169,7 @@ client.on('message', async message => {
 
             case "rana":
                 setTimeout(() => {
-                    message.reply("Hmmmm");
+                    message.reply("Punyaku");
                 }, 5000);
                 break;
 
@@ -582,25 +589,6 @@ client.on('message', async message => {
                 }, 100);
                 break;
 
-            case "wutnime":
-                if (!message.attachments) return;
-                let attachment = message.attachments.first().url
-                let details = await wutNime(attachment)
-                message.channel.sendTyping()
-                setTimeout(() => {
-                    let anime = new MessageEmbed()
-                    .setColor("#ff00dd")
-                    .setTitle(details.title)
-                    .addFields(
-                        { name: '**Similarity**', value: `${toPercent(details.similarity) + "%"}` },
-                        { name: '**Episode**', value: `${details.episode ? details.episode : "Special"}` },
-                        { name: '**Minutes**', value: `${conSec(details.from)} - ${conSec(details.to)}` },
-                    )
-                    .setImage(details.image)
-                    message.channel.send({ embeds: [anime] });
-                }, 2000);
-                break;
-
             case "quote":
                 let qdata = await getQuote()
                 message.channel.sendTyping()
@@ -617,8 +605,8 @@ client.on('message', async message => {
     }
 
     catch(err) {
-        message.channel.send(`**Astagfirullah error : ${err}**`)
-        // message.channel.send(`**Astagfirullah error**`)
+        // message.channel.send(`**Astagfirullah error : ${err}**`)
+        message.channel.send(`**Astagfirullah error**`)
     }
     
 })
