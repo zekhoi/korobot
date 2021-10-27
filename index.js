@@ -39,7 +39,7 @@ client.on('ready', () => {
 
 
 client.on('messageCreate', async message => {
-    // if(message.channelId != 899131952572014646) return;
+    if(message.channelId != 899131952572014646) return;
 
     let content = message.content.toLowerCase()
     let filter = content.split(' ');
@@ -105,13 +105,13 @@ client.on('messageCreate', async message => {
             return;
         }
 
-        if(message.mentions.users.first().id == 449765142993829888){
-            message.channel.sendTyping()
-            setTimeout(() => {
-                message.reply(`${message.author} Ada perlu apa sama lord?`);
-            }, 2000);
-            return;
-        }
+        // if(message.mentions.users.first().id == 449765142993829888){
+        //     message.channel.sendTyping()
+        //     setTimeout(() => {
+        //         message.reply(`${message.author} Ada perlu apa sama lord?`);
+        //     }, 2000);
+        //     return;
+        // }
 
         if (!content.startsWith(prefix) || message.author.bot) return;
 
@@ -605,8 +605,8 @@ client.on('messageCreate', async message => {
     }
 
     catch(err) {
-        // message.channel.send(`**Astagfirullah error : ${err}**`)
-        message.channel.send(`**Astagfirullah error**`)
+        message.channel.send(`**Astagfirullah error : ${err}**`)
+        // message.channel.send(`**Astagfirullah error**`)
     }
     
 })
