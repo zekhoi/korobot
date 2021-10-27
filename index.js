@@ -1,5 +1,5 @@
 const { Client, MessageEmbed } = require("discord.js");
-const { getQuote, getNeko, getWaifu, wutNime, conSec, toPercent } = require("./function.js");
+const { getQuote, getNeko, getWaifu } = require("./function.js");
 const config = require("./config.json");
 const data = require("./data.json");
 const kalimat = require("./bacot.json");

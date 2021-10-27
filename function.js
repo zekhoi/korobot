@@ -47,8 +47,5 @@ const toPercent = (decimal) => {
 module.exports = {
     getQuote,
     getNeko,
-    getWaifu,
-    wutNime,
-    conSec,
-    toPercent
+    getWaifu
 }
