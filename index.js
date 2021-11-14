@@ -606,7 +606,9 @@ client.on('messageCreate', async message => {
     }
 
     catch(err) {
-        message.channel.send(`**Astagfirullah error : ${err}**`)
+        console.log(err)
+        continue
+        // message.channel.send(`**Astagfirullah error : ${err}**`)
         // message.channel.send(`**Astagfirullah error**`)
     }
     
