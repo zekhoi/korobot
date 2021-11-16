@@ -703,6 +703,44 @@ client.on("messageCreate", async (message) => {
         }, 100);
         break;
 
+      case "tos":
+        if (!mentioned) return;
+        if (message.author.id == mentioned.id) {
+          message.reply("Astagfirullah, istigfar. . .");
+          return;
+        }
+        message.channel.sendTyping();
+        setTimeout(async () => {
+          let tos_img = await getWaifu("highfive");
+          let tos = new MessageEmbed()
+            .setColor("#ff00dd")
+            .setDescription(
+              `**${message.author.username}** :raised_hands: **${mentioned.username}**`
+            )
+            .setImage(tos_img);
+          message.channel.send({ embeds: [tos] });
+        }, 100);
+        break;
+
+      case "hai":
+        if (!mentioned) return;
+        if (message.author.id == mentioned.id) {
+          message.reply("Astagfirullah, istigfar. . .");
+          return;
+        }
+        message.channel.sendTyping();
+        setTimeout(async () => {
+          let hai_img = await getWaifu("wave");
+          let hai = new MessageEmbed()
+            .setColor("#ff00dd")
+            .setDescription(
+              `:hand_splayed: **${message.author.username}** : hai **${mentioned.username}**`
+            )
+            .setImage(hai_img);
+          message.channel.send({ embeds: [hai] });
+        }, 100);
+        break;
+
       case "quote":
         let qdata = await getQuote();
         message.channel.sendTyping();
